@@ -3,8 +3,28 @@ $darkblue: #004f85;
 $lightblue: #53a6e2;
 $lighterblue: #00aacf;
 $gray: #ebebeb;
-$primary: #ffa500;
+$primary: #ea3a60;
 $lightgray: #f9f9f9;
 
 // fonts
 $body-font-family: 'Poppins', sans-serif;
+
+.btn {
+  @apply font-bold text-sm;
+  border: 1px solid $primary;
+  border-radius: 3px;
+  text-transform: uppercase;
+  &.btn-primary{
+    background: $primary;
+    color: white;
+    margin-right: 1rem;
+  }
+  &.btn-secondary{
+    color: $primary;
+    transition: .3s;
+    &:hover{
+      background: $primary;
+      color: white;
+    }
+  }
+}
