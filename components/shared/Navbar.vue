@@ -59,8 +59,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/css/variables";
-
 header {
   @apply h-20 grid grid-cols-5 fixed w-full top-0 z-50;
   background: $gray;

@@ -17,7 +17,6 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import "@/assets/css/variables";
 .hero__image {
   // background-image: url('~assets/images/frontend/hero.jpg');
   @apply bg-no-repeat bg-cover bg-center bg-fixed relative flex items-center;
