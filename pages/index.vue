@@ -17,19 +17,47 @@
           </content-placeholders>
         </div>
       </template>
-        <inline-error-block />
       <template>
-
+        <inline-error-block />
       </template>
-
       <template>
         <div class="article-cards-wrapper">
-          <course-card class="article-card-block"/>
-          <course-card class="article-card-block"/>
-          <course-card class="article-card-block"/>
-          <course-card class="article-card-block"/>
-          <course-card class="article-card-block"/>
-          <course-card class="article-card-block"/>
+            <v-popover class="article-card-block"
+                offset="16"
+                trigger="hover"
+                placement="right-start">
+                <course-card class=""/>
+              <template slot="popover">
+                <course-card-tooltip />
+              </template>
+            </v-popover>
+            <v-popover class="article-card-block"
+                offset="16"
+                trigger="hover"
+                placement="right-start">
+                <course-card class=""/>
+              <template slot="popover">
+                <course-card-tooltip />
+              </template>
+            </v-popover>
+            <v-popover class="article-card-block"
+                offset="16"
+                trigger="hover"
+                placement="right-start">
+                <course-card class=""/>
+              <template slot="popover">
+                <course-card-tooltip />
+              </template>
+            </v-popover>
+            <v-popover class="article-card-block"
+                offset="16"
+                trigger="hover"
+                placement="right-start">
+                <course-card class=""/>
+              <template slot="popover">
+                <course-card-tooltip />
+              </template>
+            </v-popover>
         </div>
       </template>
 
@@ -42,9 +70,10 @@
 import Hero from '@/components/shared/Hero'
 import CourseCard from '@/components/shared/CourseCard'
 import InlineErrorBlock from '@/components/shared/InlineErrorBlock'
+import CourseCardTooltip from '@/components/CourseCardTooltip'
 export default {
   components: {
-    Hero, CourseCard, InlineErrorBlock
+    Hero, CourseCard, InlineErrorBlock, CourseCardTooltip
   }
 }
 </script>

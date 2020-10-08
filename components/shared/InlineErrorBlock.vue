@@ -1,5 +1,6 @@
 <template>
   <div class="error-block">
+    <fa class="text-5xl text-red-600" :icon="['fas', 'exclamation-triangle']"></fa>
     <h2>Titulo de error</h2>
   </div>
 </template>
