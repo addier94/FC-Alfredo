@@ -44,13 +44,13 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     ['nuxt-fontawesome', {
-      component: 'fa', 
+      component: 'fa',
       imports: [
         //import whole set
         {
           set: '@fortawesome/free-solid-svg-icons',
-          icons: ['fas']
-        },
+          icons: ['fas', 'faAdjust', 'faArchive']
+        }
       ]
     }],
     '@nuxtjs/style-resources',
