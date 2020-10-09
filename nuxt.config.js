@@ -24,8 +24,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
-    '~/plugins/vue-placeholders.js',
-    '~/plugins/tooltip.js'
+    {src: '~/plugins/vue-placeholders.js'},
+    {src: '~/plugins/tooltip.js'}
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)

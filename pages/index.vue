@@ -22,45 +22,72 @@
       </template>
       <template>
         <div class="article-cards-wrapper">
-            <v-popover class="article-card-block"
-                offset="16"
-                trigger="hover"
-                placement="right-start">
-                <course-card class=""/>
-              <template slot="popover">
-                <course-card-tooltip />
-              </template>
-            </v-popover>
-            <v-popover class="article-card-block"
-                offset="16"
-                trigger="hover"
-                placement="right-start">
-                <course-card class=""/>
-              <template slot="popover">
-                <course-card-tooltip />
-              </template>
-            </v-popover>
-            <v-popover class="article-card-block"
-                offset="16"
-                trigger="hover"
-                placement="right-start">
-                <course-card class=""/>
-              <template slot="popover">
-                <course-card-tooltip />
-              </template>
-            </v-popover>
-            <v-popover class="article-card-block"
-                offset="16"
-                trigger="hover"
-                placement="right-start">
-                <course-card class=""/>
-              <template slot="popover">
-                <course-card-tooltip />
-              </template>
-            </v-popover>
+          <v-popover class="article-card-block"
+              offset="16"
+              trigger="hover"
+              placement="right-start">
+              <course-card />
+            <template slot="popover">
+              <course-card-tooltip />
+            </template>
+          </v-popover>
+          <v-popover class="article-card-block"
+              offset="16"
+              trigger="hover"
+              placement="right-start">
+              <course-card />
+            <template slot="popover">
+              <course-card-tooltip />
+            </template>
+          </v-popover>
+          <v-popover class="article-card-block"
+              offset="16"
+              trigger="hover"
+              placement="right-start">
+              <course-card />
+            <template slot="popover">
+              <course-card-tooltip />
+            </template>
+          </v-popover>
+          <v-popover class="article-card-block"
+              offset="16"
+              trigger="hover"
+              placement="right-start">
+              <course-card />
+            <template slot="popover">
+              <course-card-tooltip />
+            </template>
+          </v-popover>
+          <v-popover class="article-card-block"
+              offset="16"
+              trigger="hover"
+              placement="right-start">
+              <course-card />
+            <template slot="popover">
+              <course-card-tooltip />
+            </template>
+          </v-popover>
+          <v-popover class="article-card-block"
+              offset="16"
+              trigger="hover"
+              placement="right-start">
+              <course-card />
+            <template slot="popover">
+              <course-card-tooltip />
+            </template>
+          </v-popover>
         </div>
       </template>
+      <template>
+        <h1 class="mt-8 ml-4 mb-8 text-3xl sm:text-5xl font-semibold capitalize inline-block leading-none">posts destacados</h1>
 
+        <div class="sm:grid sm:grid-cols-2 sm:gap-4 m-4">
+          <blog-card />
+          <blog-card />
+          <blog-card />
+          <blog-card />
+        </div>
+      </template>
     </div>
   </section>
 </div>
@@ -71,9 +98,10 @@ import Hero from '@/components/shared/Hero'
 import CourseCard from '@/components/shared/CourseCard'
 import InlineErrorBlock from '@/components/shared/InlineErrorBlock'
 import CourseCardTooltip from '@/components/CourseCardTooltip'
+import BlogCard from '@/components/shared/BlogCard'
 export default {
   components: {
-    Hero, CourseCard, InlineErrorBlock, CourseCardTooltip
+    Hero, CourseCard, InlineErrorBlock, CourseCardTooltip, BlogCard
   }
 }
 </script>

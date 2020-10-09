@@ -9,6 +9,10 @@ $lightgray: #f9f9f9;
 // fonts
 $body-font-family: 'Poppins', sans-serif;
 
+.v-popover  .trigger{
+    display: block !important;
+}
+
 .btn {
   @apply font-bold text-sm;
   border: 1px solid $primary;
