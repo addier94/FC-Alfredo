@@ -16,6 +16,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@fortawesome/fontawesome-svg-core/styles.css',
     '~/assets/styles/reset.scss'
   ],
   styleResources: {
@@ -24,6 +25,7 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    '~/plugins/fontawesome.js',
     {src: '~/plugins/vue-placeholders.js'},
     {src: '~/plugins/tooltip.js'}
   ],
@@ -43,16 +45,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    ['nuxt-fontawesome', {
-      component: 'fa',
-      imports: [
-        //import whole set
-        {
-          set: '@fortawesome/free-solid-svg-icons',
-          icons: ['fas', 'faAdjust', 'faArchive']
-        }
-      ]
-    }],
     '@nuxtjs/style-resources',
   ],
 

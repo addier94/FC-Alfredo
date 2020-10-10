@@ -15,15 +15,15 @@
         <ul class="mt-2">
           <!-- TODO: Iterate wsl -->
           <li class="flex items-center leading-none mt-2 text-gray-700">
-            <fa class="mr-4" :icon="['fas', 'check']"></fa>
+            <font-awesome-icon class="mr-4" :icon="[ 'fas', 'check' ]" />
             wsl description of cloud computing in amazon web services
           </li>
           <li class="flex items-center leading-none mt-2 text-gray-700">
-            <fa class="mr-4" :icon="['fas', 'check']"></fa>
+            <font-awesome-icon class="mr-4" :icon="[ 'fas', 'check' ]" />
             wsl description of cloud computing
           </li>
           <li class="flex items-center leading-none mt-2 text-gray-700">
-            <fa class="mr-4" :icon="['fas', 'check']"></fa>
+            <font-awesome-icon class="mr-4" :icon="[ 'fas', 'check' ]" />
             wsl description of cloud computing in amazon web services
           </li>
         </ul>

@@ -41,8 +41,8 @@
         </button>
       </section>
       <button class="burger" @click="showNavContent = !showNavContent">
-        <fa class="text-3xl" v-if="!showNavContent" :icon="['fas', 'bars']"></fa>
-        <fa class="text-4xl" v-else :icon="['fas', 'times']"></fa>
+        <font-awesome-icon v-if="!showNavContent" size="lg" :icon="[ 'fas', 'bars' ]" />
+        <font-awesome-icon v-else size="lg" :icon="[ 'fas', 'times' ]" />
       </button>
     </nav>
   </header>

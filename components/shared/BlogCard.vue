@@ -14,7 +14,7 @@
       </div>
       <div>
         <a href="#" class="category">
-          <fa :icon="['fas', 'calendar-alt']"></fa>
+          <font-awesome-icon :icon="[ 'fas', 'calendar-alt' ]" />
           Categoria
         </a>
       </div>
