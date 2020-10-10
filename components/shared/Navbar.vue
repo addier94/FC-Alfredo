@@ -1,7 +1,9 @@
 <template>
   <header>
     <figure>
-      <img src="@/assets/images/logo.png" alt="Logo" />
+      <nuxt-link to="/">
+        <img src="@/assets/images/logo.png" alt="Logo" />
+      </nuxt-link>
       <figcaption>
         <span>FC</span>
         <span>Alfredo</span>
@@ -9,36 +11,42 @@
     </figure>
     <nav :class="{ 'show-nav': showNavContent }">
       <section class="nav-content">
-        <button
+        <nuxt-link
+          to="/"
           class="nav-content__button"
-        >
+          tag="button">
           <span>Home</span>
-        </button>
-        <button
+        </nuxt-link>
+        <nuxt-link
+          to="courses"
           class="nav-content__button"
-        >
+          tag="button">
           <span>Cursos</span>
-        </button>
-        <button
+        </nuxt-link>
+        <nuxt-link
+          to="blogs"
           class="nav-content__button"
-        >
+          tag="button">
           <span>Blogs</span>
-        </button>
-        <button
+        </nuxt-link>
+        <nuxt-link
+          to="about"
           class="nav-content__button"
-        >
+          tag="button">
           <span>Sobre Mi</span>
-        </button>
-        <button
+        </nuxt-link>
+        <nuxt-link
+          to="register"
           class="nav-content__button"
-        >
+          tag="button">
           <span>Registro</span>
-        </button>
-        <button
+        </nuxt-link>
+        <nuxt-link
+          to="login"
           class="nav-content__button"
-        >
+          tag="button">
           <span>login</span>
-        </button>
+        </nuxt-link>
       </section>
       <button class="burger" @click="showNavContent = !showNavContent">
         <font-awesome-icon v-if="!showNavContent" size="lg" :icon="[ 'fas', 'bars' ]" />
@@ -94,7 +102,7 @@ header {
     &:focus{
       @apply outline-none;
     }
-    &:active {
+    &:nuxt-link-exact-active {
       color: $primary;
     }
     .nav-content{
@@ -119,7 +127,7 @@ header {
         top: 5rem;
         button {
           @apply h-20 bg-black;
-          &.active {
+          &.nuxt-link-exact-active {
             background: $primary;
           }
         }
@@ -148,7 +156,7 @@ header {
         @apply w-full h-full flex items-center justify-evenly;
         button {
           @apply relative;
-          &.active{
+          &.nuxt-link-exact-active{
             color: $primary;
             span::after{
               content: "";
@@ -171,7 +179,7 @@ header {
       span{
         @apply border-b-4 border-white;
       }
-      &.active {
+      &.nuxt-link-exact-active {
         color: $primary;
         span{
           border-color: $primary;

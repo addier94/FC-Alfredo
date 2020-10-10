@@ -5,7 +5,7 @@
     <h1 class="mt-12 ml-4 mb-8 text-3xl sm:text-5xl font-semibold capitalize inline-block leading-none">Recursos destacados</h1>
     <div class="page-wrapper">
       <template>
-        <div class="article-cards-wrapper">
+        <div class="flex flex-wrap items-start">
           <content-placeholders
             v-for="p in 6"
             :key="p"
@@ -21,7 +21,7 @@
         <inline-error-block />
       </template>
       <template>
-        <div class="article-cards-wrapper">
+        <div class="flex flex-wrap items-start">
           <v-popover class="article-card-block"
               offset="16"
               trigger="hover"
@@ -113,22 +113,18 @@ h1{
 .page-wrapper{
   max-width: 1280px;
   margin: auto;
-  // padding: 1rem;
   min-height: 100vh;
-  .article-cards-wrapper {
-    @apply flex flex-wrap items-start;
-    .article-card-block {
-      width: calc(100% - 2 * 1rem);
-      @apply m-4 mb-6 mt-2;
-      @media (min-width: 576px) {
-        width: calc(50% - 2 * 1rem);
-      }
-      @media (min-width: 768px) {
-        width: calc(33.33333% - 2 * 1rem);
-      }
-      @media (min-width: 1024px) {
-        width: calc(25% - 2 * 1rem);
-      }
+  .article-card-block {
+    width: calc(100% - 2 * 1rem);
+    @apply m-4 mb-6 mt-2;
+    @media (min-width: 576px) {
+      width: calc(50% - 2 * 1rem);
+    }
+    @media (min-width: 768px) {
+      width: calc(33.33333% - 2 * 1rem);
+    }
+    @media (min-width: 1024px) {
+      width: calc(25% - 2 * 1rem);
     }
   }
 }
