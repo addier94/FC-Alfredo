@@ -3,8 +3,10 @@ $darkblue: #004f85;
 $lightblue: #53a6e2;
 $lighterblue: #00aacf;
 $gray: #ebebeb;
-$primary: #ea3a60;
 $lightgray: #f9f9f9;
+
+$primary: #ea3a60;
+$secondary: #00bda6;
 
 // fonts
 $body-font-family: 'Poppins', sans-serif;
@@ -12,7 +14,25 @@ $body-font-family: 'Poppins', sans-serif;
 .v-popover  .trigger{
     display: block !important;
 }
-
+// class custom colors
+.bg-info{
+  background: #f0f0f0;
+}
+.bg-primary{
+  background: $primary;
+}
+.text-primary{
+  color: $primary;
+}
+.border-primary{
+  border-color: $primary;
+}
+.bg-secondary{
+  background: $secondary;
+}
+.text-secondary{
+  color: $secondary;
+}
 .btn {
   @apply font-bold text-sm;
   border: 1px solid $primary;
@@ -32,6 +52,25 @@ $body-font-family: 'Poppins', sans-serif;
     }
   }
 }
+
+@media (min-width: 576px) {
+  .sm-w-1-2{
+    width: calc(50% - 2 * 1rem);
+  }
+}
+@media (min-width: 768px) {
+  .md-w-1-3{
+    width: calc(33.33333% - 2 * 1rem);
+  }
+}
+@media (min-width: 1024px) {
+  .lg-w-1-4{
+    width: calc(25% - 2 * 1rem);
+  }
+}
+
+
+
 
 // card home
 $shadow: -9px -9px 16px #f8fafe, 9px 9px 16px #ced2db;
