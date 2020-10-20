@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap items-start">
     <content-placeholders
-      v-for="p in 6"
+      v-for="p in items"
       :key="p"
       rounded
       class="w-full mx-4 mb-6 mt-2 sm-w-1-2 md-w-1-3 lg-w-1-4"
@@ -12,3 +12,8 @@
     </content-placeholders>
   </div>
 </template>
+<script>
+export default {
+  props:['items']
+}
+</script>

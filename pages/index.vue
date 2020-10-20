@@ -3,9 +3,9 @@
   <hero />
   <section class="section">
     <h1 class="mt-12 ml-4 mb-8 text-3xl sm:text-5xl font-semibold capitalize inline-block leading-none border-solid border-b-2 border-primary">Recursos destacados</h1>
-    <div class="page-wrapper max-w-screen-xl m-auto min-h-screen">
+    <div class="max-w-screen-xl m-auto min-h-screen">
       <template>
-        <placeholders />
+        <placeholders :items="6" />
       </template>
       <template>
         <inline-error-block />
