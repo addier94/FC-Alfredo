@@ -79,3 +79,10 @@ $hovered-surface-color: linear-gradient(
 );
 $small-inner-shadow: inset -4px -4px 8px #f0f3f9, inset 4px 4px 8px #ced2db,
   inset -1px -1px 4px #8e8e8e;
+// boxshadow
+.loginBoxShadow{
+  box-shadow: 6px 5px 10px rgba(0, 0, 0, 0.08);
+}
+.small-shadow{
+  box-shadow: $small-shadow;
+}

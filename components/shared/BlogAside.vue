@@ -1,5 +1,7 @@
 <template>
-  <div class="lg:w-64 sm:grid sm:grid-cols-2 lg:grid-cols-none">
+  <!-- <div class="lg:w-64 sm:grid sm:grid-cols-2 lg:grid-cols-none"> -->
+<div class="lg:w-3/12 lg:absolute lg:right-0 lg:top-0">
+  <div class="sm:grid sm:grid-cols-2 lg:grid-cols-none">
     <div class="flex relative mt-12 lg:mt-0  sm:h-12">
       <input placeholder="Search ..." class="w-full bg-info p-4 pr-12 rounded" type="text">
       <div class="absolute right-0 h-full flex items-center">
@@ -40,7 +42,24 @@
       </div>
     </div>
   </div>
+</div>
 </template>
+
+<script>
+export default {
+  mounted: function () {
+      window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed: function () {
+      window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods:{
+    handleScroll: function(event) {
+      console.log('this each scrooll', window.scrollY, 'pageY', window.height());
+    },
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .search{
