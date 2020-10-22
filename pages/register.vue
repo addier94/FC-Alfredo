@@ -7,7 +7,7 @@
           <a href="#" class="px-4 py-2 rounded-r active">Registro</a>
         </div>
       </div>
-      <div class="small-shadow px-8 pt-6 pb-10 w-full bg-green-100">
+      <div class="small-shadow px-8 pt-6 pb-10 w-full bg-gray-100">
         <h5 class="font-bold text-3xl mb-3">Registro</h5>
         <div class="mb-4">
           <p  class="mb-4">Usuario</p>
