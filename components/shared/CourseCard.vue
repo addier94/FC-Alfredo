@@ -8,12 +8,12 @@
     </div>
     <div class="content">
       <div>
-        <a href="#">
+        <nuxt-link to="courses/anything">
           <h3 class="text-xl font-bold tracking-tighter">
             my short title
             <small class="font-normal block text-sm text-gray-600">Title shot description of full description of my project</small>
           </h3>
-        </a>
+        </nuxt-link>
       </div>
       <div class="tags mt-1 tracking-tight">
         <a href="#" class="tag">Explorar</a>

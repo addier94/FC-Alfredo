@@ -22,7 +22,7 @@
           <p class="mb-4">Password</p>
           <input type="text" class="bg-info px-2 py-3 rounded w-full" placeholder="Password">
         </div>
-        <button class="text-center w-full bg-secondary text-white py-4 rounded transition duration-300">Register</button>
+        <button class="button text-center w-full bg-secondary text-white py-4 rounded transition duration-300">Register</button>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@
 .login-and-register .active{
   @apply bg-primary text-white; 
 }
-button:hover{
+.button:hover{
   @apply bg-black text-primary;
 }
 </style>
