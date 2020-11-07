@@ -11,46 +11,39 @@
     </figure>
     <nav :class="{ 'show-nav': showNavContent }">
       <section class="nav-content">
-        <nuxt-link
-          to="/"
-          class="nav-content__button"
-          tag="button">
+        <nuxt-link to="/" class="nav-content__button" tag="button">
           <span>Home</span>
         </nuxt-link>
-        <nuxt-link
-          to="courses"
-          class="nav-content__button"
-          tag="button">
+        <nuxt-link to="/courses" class="nav-content__button" tag="button">
           <span>Cursos</span>
         </nuxt-link>
         <nuxt-link
-          to="blogs"
+          :to="{ name: 'blogs' }"
           class="nav-content__button"
-          tag="button">
+          tag="button"
+        >
           <span>Blogs</span>
         </nuxt-link>
-        <nuxt-link
-          to="about"
-          class="nav-content__button"
-          tag="button">
+        <nuxt-link to="/about" class="nav-content__button" tag="button">
           <span>Sobre Mi</span>
         </nuxt-link>
-        <nuxt-link
-          to="register"
-          class="nav-content__button"
-          tag="button">
+        <nuxt-link to="/register" class="nav-content__button" tag="button">
           <span>Registro</span>
         </nuxt-link>
-        <nuxt-link
-          to="login"
-          class="nav-content__button"
-          tag="button">
+        <nuxt-link to="/login" class="nav-content__button" tag="button">
           <span>login</span>
         </nuxt-link>
       </section>
-      <button class="burger" @click="showNavContent = !showNavContent">
-        <font-awesome-icon v-if="!showNavContent" size="lg" :icon="[ 'fas', 'bars' ]" />
-        <font-awesome-icon v-else size="lg" :icon="[ 'fas', 'times' ]" />
+      <button
+        class="burger focus:outline-none"
+        @click="showNavContent = !showNavContent"
+      >
+        <font-awesome-icon
+          v-if="!showNavContent"
+          size="lg"
+          :icon="['fas', 'bars']"
+        />
+        <font-awesome-icon v-else size="lg" :icon="['fas', 'times']" />
       </button>
     </nav>
   </header>
@@ -60,9 +53,9 @@
 export default {
   data() {
     return {
-      showNavContent: false
+      showNavContent: false,
     };
-  }
+  },
 };
 </script>
 
@@ -70,17 +63,17 @@ export default {
 header {
   @apply h-20 grid grid-cols-5 fixed w-full top-0 z-50;
   background: $gray;
-  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   figure {
     @apply col-span-3 flex items-center;
-    img{
+    img {
       @apply inline-block max-w-none;
       max-height: 5rem;
     }
-    figcaption{
+    figcaption {
       @apply inline-block leading-7;
 
-      span{
+      span {
         @apply block text-2xl font-medium;
         font-family: $body-font-family;
       }
@@ -89,7 +82,7 @@ header {
 
   nav {
     @apply col-start-5 bg-black text-white relative flex items-center justify-center;
-    &::before{
+    &::before {
       content: "";
       @apply w-0 h-0 absolute top-0;
       border-bottom: 5rem solid black;
@@ -99,22 +92,22 @@ header {
     .burger {
       @apply w-full h-full text-2xl;
     }
-    &:focus{
+    &:focus {
       @apply outline-none;
     }
     &:nuxt-link-exact-active {
       color: $primary;
     }
-    .nav-content{
-      button{
+    .nav-content {
+      button {
         @apply text-white text-lg font-normal;
         font-family: $body-font-family;
-        &:focus{
+        &:focus {
           @apply outline-none;
         }
       }
     }
-    
+
     @media screen and (max-width: 767px) {
       &:not(.show-nav) {
         .nav-content {
@@ -132,11 +125,11 @@ header {
           }
         }
       }
-      &.show-nav{
+      &.show-nav {
         .burger {
           background: $primary;
         }
-        &::before{
+        &::before {
           content: "";
           @apply w-0 h-0 absolute top-0;
           border-bottom: 5rem solid $primary;
@@ -152,13 +145,13 @@ header {
     }
     nav {
       @apply col-start-3 col-span-3;
-      .nav-content{
+      .nav-content {
         @apply w-full h-full flex items-center justify-evenly;
         button {
           @apply relative;
-          &.nuxt-link-exact-active{
+          &.nuxt-link-exact-active {
             color: $primary;
-            span::after{
+            span::after {
               content: "";
               @apply absolute w-full block;
               border-radius: 3px 3px 0 0;
@@ -167,7 +160,7 @@ header {
               bottom: -26px;
             }
           }
-          &:hover{
+          &:hover {
             color: $primary;
           }
         }
@@ -176,17 +169,17 @@ header {
     .nav-button {
       @apply text-lg block;
       font-family: $body-font-family;
-      span{
+      span {
         @apply border-b-4 border-white;
       }
       &.nuxt-link-exact-active {
         color: $primary;
-        span{
+        span {
           border-color: $primary;
         }
       }
     }
-    .burger{
+    .burger {
       @apply hidden;
     }
   }

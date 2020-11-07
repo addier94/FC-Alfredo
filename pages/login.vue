@@ -10,16 +10,30 @@
       <div class="small-shadow px-8 pt-6 pb-10 w-full bg-gray-100">
         <h5 class="font-bold text-3xl mb-3">Login</h5>
         <div class="mb-4">
-          <p  class="mb-4">Email</p>
-          <input type="text" class="bg-info px-2 py-3 rounded w-full" placeholder="Email">
-          <p class="text-red-700 italic leading-tight text-sm mt-1">The password should be at least twelve characters long. To make it stronger, use upper and lower case letters, numbers, and symbols like</p>
+          <p class="mb-4">Email</p>
+          <input
+            type="text"
+            class="bg-info px-2 py-3 rounded w-full"
+            placeholder="Email"
+          />
+          <p class="text-red-700 italic leading-tight text-sm mt-1">
+            The password should be at least twelve characters long. To make it
+            stronger, use upper and lower case letters, numbers, and symbols
+            like
+          </p>
         </div>
         <div class="mb-8">
           <p class="mb-4">Password</p>
-          <input type="text" class="bg-info px-2 py-3 rounded w-full" placeholder="Password">
+          <input
+            type="text"
+            class="bg-info px-2 py-3 rounded w-full"
+            placeholder="Password"
+          />
         </div>
         <!-- <button class="button text-center w-full bg-secondary text-white py-4 rounded transition duration-300">Login</button> -->
-        <button class="opacity-50 cursor-not-allowed text-center w-full bg-secondary text-white py-4 rounded">
+        <button
+          class="opacity-50 cursor-not-allowed text-center w-full bg-secondary text-white py-4 rounded focus:outline-none"
+        >
           <font-awesome-icon icon="spinner" size="lg" pulse />
           Login
         </button>
@@ -29,13 +43,13 @@
 </template>
 
 <style lang="scss" scoped>
-.register{
-  font-family: 'Open Sans', sans-serif; 
+.register {
+  font-family: "Open Sans", sans-serif;
 }
-.login-and-register .active{
-  @apply bg-primary text-white; 
+.login-and-register .active {
+  @apply bg-primary text-white;
 }
-.button:hover{
+.button:hover {
   @apply bg-black text-primary;
 }
 </style>

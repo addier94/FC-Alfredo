@@ -1,17 +1,18 @@
 <template>
   <div>
     <Navbar />
-    <Nuxt />
+    <Nuxt keep-alive />
     <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/shared/Navbar'
-import Footer from '~/components/shared/Footer'
+import Navbar from "~/components/shared/Navbar";
+import Footer from "~/components/shared/Footer";
 export default {
   components: {
-    Navbar, Footer
-  }
-}
+    Navbar,
+    Footer,
+  },
+};
 </script>

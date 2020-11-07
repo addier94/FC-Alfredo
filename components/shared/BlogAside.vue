@@ -1,76 +1,132 @@
 <template>
   <!-- <div class="lg:w-64 sm:grid sm:grid-cols-2 lg:grid-cols-none"> -->
-<div class="lg:w-3/12 lg:absolute lg:right-0 lg:top-0">
-  <div class="sm:grid sm:grid-cols-2 lg:grid-cols-none">
-    <div class="flex relative mt-12 lg:mt-0  sm:h-12">
-      <input placeholder="Search ..." class="w-full bg-info p-4 pr-12 rounded" type="text">
-      <div class="absolute right-0 h-full flex items-center">
-        <div class="search bg-primary p-2 mr-1 rounded text-white cursor-pointer">
-          <font-awesome-icon size="lg" :icon="[ 'fas', 'search' ]" />
+  <div class="lg:w-3/12 lg:absolute lg:right-0 lg:top-0">
+    <div class="sm:grid sm:grid-cols-2 lg:grid-cols-none">
+      <!-- Search -->
+      <div class="flex relative mt-12 lg:mt-0 sm:h-12">
+        <input
+          placeholder="Search ..."
+          class="w-full bg-info p-4 pr-12 rounded"
+          type="text"
+        />
+        <div class="absolute right-0 h-full flex items-center">
+          <div
+            class="search bg-primary p-2 mr-1 rounded text-white cursor-pointer"
+          >
+            <font-awesome-icon size="lg" :icon="['fas', 'search']" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="categories mt-10 sm:mt-12 sm:justify-self-end lg:justify-self-start">
-      <h2 class="border-l-4 font-semibold pl-3 text-base uppercase text-primary">Categorias</h2>
-      <div class="mt-4">
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Business <span class="text-gray-500">(3)</span></a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Ideas Y Tips <span class="text-gray-500">(283)</span></a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Languages <span class="text-gray-500">(4)</span></a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Learning <span class="text-gray-500">(8)</span></a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Smart <span class="text-gray-500">(9)</span></a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Technology <span class="text-gray-500">(10)</span></a>
+      <!-- End serach -->
+      <!-- Featured -->
+      <div class="featured mt-10">
+        <h2
+          class="border-l-4 font-semibold pl-3 text-base uppercase text-primary"
+        >
+          Posts Destacados
+        </h2>
+        <div class="mt-4">
+          <nuxt-link
+            :to="{ name: 'blogs-destacados' }"
+            class="block font-semibold leading-loose ml-5 relative transition duration-300 hover:text-gray-500"
+            >Destacados
+          </nuxt-link>
+          <a
+            class="block font-semibold leading-loose ml-5 relative transition duration-300 hover:text-gray-500"
+            href="#"
+            >Mis posts
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="featured mt-10">
-      <h2 class="border-l-4 font-semibold pl-3 text-base uppercase text-primary">Posts Destacados</h2>
-      <div class="mt-4">
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">lorem </a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Ideas Y Tips </a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Languages </a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Learning </a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Smart </a>
-        <a class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100" href="#">Technology </a>
+      <!-- End Featured -->
+      <!-- Categories -->
+      <div
+        class="categories mt-10 sm:mt-12 sm:justify-self-end lg:justify-self-start"
+      >
+        <h2
+          class="border-l-4 font-semibold pl-3 text-base uppercase text-primary"
+        >
+          Categorias
+        </h2>
+        <div class="mt-4">
+          <a
+            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
+            href="#"
+            >Business <span class="text-gray-500">(3)</span></a
+          >
+          <a
+            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
+            href="#"
+            >Ideas Y Tips <span class="text-gray-500">(283)</span></a
+          >
+          <a
+            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
+            href="#"
+            >Languages <span class="text-gray-500">(4)</span></a
+          >
+          <a
+            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
+            href="#"
+            >Learning <span class="text-gray-500">(8)</span></a
+          >
+          <a
+            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
+            href="#"
+            >Smart <span class="text-gray-500">(9)</span></a
+          >
+          <a
+            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
+            href="#"
+            >Technology <span class="text-gray-500">(10)</span></a
+          >
+        </div>
       </div>
-    </div>
-    <div class="mt-10 md:justify-self-end lg:justify-self-start">
-      <h2 class="border-l-4 font-semibold pl-3 text-base uppercase text-primary">Posts Destacados</h2>
-      <div class="tags mt-4">
-        <a href="/t/webdev" class="tag"><span class="">#</span>webdev</a>
-        <a href="/t/javascript" class="tag"><span class="">#</span>javascript</a>
-        <a href="/t/css" class="tag"><span class="">#</span>css</a>
-        <a href="/t/html" class="tag"><span class="">#</span>html</a>
+      <!-- End Categories -->
+      <!-- Tags -->
+      <div class="mt-10 md:justify-self-end lg:justify-self-start">
+        <h2
+          class="border-l-4 font-semibold pl-3 text-base uppercase text-primary"
+        >
+          Posts Tags
+        </h2>
+        <div class="tags mt-4">
+          <a href="/t/webdev" class="tag"><span class="">#</span>webdev</a>
+          <a href="/t/javascript" class="tag"
+            ><span class="">#</span>javascript</a
+          >
+          <a href="/t/css" class="tag"><span class="">#</span>css</a>
+          <a href="/t/html" class="tag"><span class="">#</span>html</a>
+        </div>
       </div>
+      <!-- End of Tags -->
     </div>
   </div>
-</div>
 </template>
 
 <script>
-export default {
-  mounted: function () {
-      window.addEventListener('scroll', this.handleScroll);
-  },
-  destroyed: function () {
-      window.removeEventListener('scroll', this.handleScroll);
-  },
-  methods:{
-    handleScroll: function(event) {
-      console.log('this each scrooll', window.scrollY, 'pageY', window.height());
-    },
-  }
-}
+export default {};
 </script>
 
 <style lang="scss" scoped>
-.search{
-  transition: .3s all;
-  &:hover{
+.search {
+  transition: 0.3s all;
+  &:hover {
     @apply bg-black text-primary;
   }
 }
-.categories a, .featured a{
-  &::before{
-    content: '';
+.featured a.nuxt-link-exact-active {
+  @apply text-gray-500;
+  &::before {
+    content: "";
+    @apply absolute block bg-gray-500 rounded-full w-3 h-3;
+    top: 11px;
+    left: -21px;
+  }
+}
+.categories a,
+.featured a {
+  &::before {
+    content: "";
     @apply absolute block bg-secondary rounded-full w-2 h-2;
     top: 13px;
     left: -21px;

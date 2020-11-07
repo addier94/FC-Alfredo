@@ -9,15 +9,16 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'},
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap'}
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap' }
     ]
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
-    '~/assets/styles/reset.scss'
+    '~/assets/styles/reset.scss',
+    '~/assets/styles/highlight.scss'
   ],
   styleResources: {
     scss: ['~/assets/styles/_variables.scss']
@@ -26,8 +27,9 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     '~/plugins/fontawesome.js',
-    {src: '~/plugins/vue-placeholders.js'},
-    {src: '~/plugins/tooltip.js'}
+    { src: '~/plugins/vue-placeholders.js' },
+    { src: '~/plugins/tooltip.js' },
+    '~/plugins/vue-observe-visibility.client.js'
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
