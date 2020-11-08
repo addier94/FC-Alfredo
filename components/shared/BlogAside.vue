@@ -1,152 +1,188 @@
 <template>
-  <!-- <div class="lg:w-64 sm:grid sm:grid-cols-2 lg:grid-cols-none"> -->
-  <div class="lg:w-3/12 lg:absolute lg:right-0 lg:top-0">
-    <div class="sm:grid sm:grid-cols-2 lg:grid-cols-none">
-      <!-- Search -->
-      <div class="flex relative mt-12 lg:mt-0 sm:h-12">
-        <input
-          placeholder="Search ..."
-          class="w-full bg-info p-4 pr-12 rounded"
-          type="text"
-        />
-        <div class="absolute right-0 h-full flex items-center">
-          <div
-            class="search bg-primary p-2 mr-1 rounded text-white cursor-pointer"
+  <aside>
+    <div class="profile p-4 rounded-xl bg-orange-600 text-white mb-4">
+      <template v-if="$fetchState.pending">
+        <aside-placeholders />
+      </template>
+      <template v-else-if="$fetchState.error">
+        <inline-error-block :error="$fetchState.error" />
+      </template>
+      <template v-else>
+        <nuxt-link
+          class="username-heading px-10 pt-2"
+          :to="{
+            name: 'username',
+            params: { username: user.username },
+          }"
+          tag="div"
+        >
+          <nuxt-link
+            :to="{
+              name: 'username',
+              params: { username: user.username },
+            }"
           >
-            <font-awesome-icon size="lg" :icon="['fas', 'search']" />
+            <img
+              :src="user.profile_image"
+              :alt="user.name"
+              class="rounded-full"
+            />
+          </nuxt-link>
+          <div class="text text-center mt-2 leading-5">
+            <nuxt-link
+              :to="{
+                name: 'username',
+                params: { username: user.username },
+              }"
+            >
+              <span class="block font-semibold text-xl">{{ user.name }}</span>
+            </nuxt-link>
+            <nuxt-link
+              :to="{
+                name: 'username',
+                params: { username: user.username },
+              }"
+            >
+              <span class="text-secondary">@{{ user.username }}</span>
+            </nuxt-link>
+          </div>
+        </nuxt-link>
+        <!-- <nuxt-link
+          :to="{
+            name: 'username',
+            params: { username: user.username },
+          }"
+          class="f-button"
+        >
+          See profile
+        </nuxt-link> -->
+        <div class="info leading-5">
+          <div v-if="user.summary">
+            <div class="title font-semibold text-secondary">about</div>
+            <div class="content">{{ user.summary }}</div>
+          </div>
+          <div v-if="user.location">
+            <div class="title font-semibold text-secondary mt-2">location</div>
+            <div class="content">{{ user.location }}</div>
+          </div>
+          <div v-if="user.joined_at">
+            <div class="title font-semibold text-secondary mt-2">joined</div>
+            <div class="content">{{ user.joined_at }}</div>
           </div>
         </div>
-      </div>
-      <!-- End serach -->
-      <!-- Featured -->
-      <div class="featured mt-10">
-        <h2
-          class="border-l-4 font-semibold pl-3 text-base uppercase text-primary"
-        >
-          Posts Destacados
-        </h2>
-        <div class="mt-4">
-          <nuxt-link
-            :to="{ name: 'blogs-destacados' }"
-            class="block font-semibold leading-loose ml-5 relative transition duration-300 hover:text-gray-500"
-            >Destacados
-          </nuxt-link>
-          <a
-            class="block font-semibold leading-loose ml-5 relative transition duration-300 hover:text-gray-500"
-            href="#"
-            >Mis posts
-          </a>
-        </div>
-      </div>
-      <!-- End Featured -->
-      <!-- Categories -->
-      <div
-        class="categories mt-10 sm:mt-12 sm:justify-self-end lg:justify-self-start"
-      >
-        <h2
-          class="border-l-4 font-semibold pl-3 text-base uppercase text-primary"
-        >
-          Categorias
-        </h2>
-        <div class="mt-4">
-          <a
-            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
-            href="#"
-            >Business <span class="text-gray-500">(3)</span></a
-          >
-          <a
-            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
-            href="#"
-            >Ideas Y Tips <span class="text-gray-500">(283)</span></a
-          >
-          <a
-            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
-            href="#"
-            >Languages <span class="text-gray-500">(4)</span></a
-          >
-          <a
-            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
-            href="#"
-            >Learning <span class="text-gray-500">(8)</span></a
-          >
-          <a
-            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
-            href="#"
-            >Smart <span class="text-gray-500">(9)</span></a
-          >
-          <a
-            class="block font-semibold leading-loose ml-5 relative transition duration-100 hover:text-gray-500 transform hover:-translate-y-1 hover:scale-100"
-            href="#"
-            >Technology <span class="text-gray-500">(10)</span></a
-          >
-        </div>
-      </div>
-      <!-- End Categories -->
-      <!-- Tags -->
-      <div class="mt-10 md:justify-self-end lg:justify-self-start">
-        <h2
-          class="border-l-4 font-semibold pl-3 text-base uppercase text-primary"
-        >
-          Posts Tags
-        </h2>
-        <div class="tags mt-4">
-          <a href="/t/webdev" class="tag"><span class="">#</span>webdev</a>
-          <a href="/t/javascript" class="tag"
-            ><span class="">#</span>javascript</a
-          >
-          <a href="/t/css" class="tag"><span class="">#</span>css</a>
-          <a href="/t/html" class="tag"><span class="">#</span>html</a>
-        </div>
-      </div>
-      <!-- End of Tags -->
+      </template>
     </div>
-  </div>
+    <div>
+      <h1 class="text-primary uppercase font-semibold border-l-4 pl-4 mb-4">
+        posts Featured
+      </h1>
+      <div>
+        <div class="block mb-3">
+          <a class="featured-list font-semibold" href="#">Featured</a>
+        </div>
+        <div class="block mb-3">
+          <a class="featured-list font-semibold" href="#">My profile</a>
+        </div>
+      </div>
+      <h1 class="text-primary uppercase font-semibold border-l-4 pl-4 mb-4">
+        posts Featured
+      </h1>
+    </div>
+  </aside>
 </template>
 
 <script>
-export default {};
+import AsidePlaceholders from "@/components/placeholders/AsidePlaceholders";
+import InlineErrorBlock from "@/components/shared/InlineErrorBlock";
+export default {
+  components: {
+    InlineErrorBlock,
+    AsidePlaceholders,
+  },
+  props: [],
+  async fetch() {
+    const res = await fetch(
+      `https://dev.to/api/users/by_username?url=${this.$route.params.username}`
+    );
+    if (!res.ok) {
+      throw new Error(`User ${this.$route.params.username} not found`);
+    }
+    this.user = await res.json();
+  },
+  fetchOnServer: false,
+  data() {
+    return {
+      user: {},
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.search {
-  transition: 0.3s all;
-  &:hover {
-    @apply bg-black text-primary;
-  }
-}
-.featured a.nuxt-link-exact-active {
-  @apply text-gray-500;
-  &::before {
+.featured-list {
+  @apply pl-6 relative;
+  &:before {
     content: "";
-    @apply absolute block bg-gray-500 rounded-full w-3 h-3;
-    top: 11px;
-    left: -21px;
-  }
-}
-.categories a,
-.featured a {
-  &::before {
-    content: "";
-    @apply absolute block bg-secondary rounded-full w-2 h-2;
-    top: 13px;
-    left: -21px;
-  }
-}
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  .tag {
-    @apply text-sm font-semibold leading-none rounded;
-    padding: 0.5rem 0.5rem;
-    margin: 0 0.5rem 0.5rem 0;
-    box-shadow: $small-shadow;
-    &:hover {
-      background: $hovered-surface-color;
-    }
-    &:active {
-      background: transparent;
-      box-shadow: $small-inner-shadow;
-    }
+    @apply w-2 h-2 absolute bg-secondary rounded-full left-0;
+    top: 8px;
   }
 }
 </style>
+
+
+
+
+// .profile {
+//   @apply bg-gray-200;
+//   .username-heading {
+//     &:hover {
+//       color: $primary;
+//     }
+//     img {
+//       @apply w-12 h-12 rounded-full mr-4;
+//     }
+//     .text {
+//       @apply flex flex-col justify-center;
+//       a {
+//         line-height: 1;
+//       }
+//       a:first-child {
+//         @apply text-xl font-medium mb-1;
+//         letter-spacing: 2 * 0.0125rem;
+//       }
+//       a:last-child {
+//         color: $secondary;
+//         @apply text-sm;
+//       }
+//     }
+//     &.loading {
+//       display: block;
+//     }
+//   }
+//   .f-button {
+//     @apply block w-full p-2 rounded-lg uppercase text-center font-semibold mb-4;
+//     box-shadow: $small-shadow;
+//     letter-spacing: 2 * 0.0125rem;
+//     &:hover {
+//       background: $hovered-surface-color;
+//     }
+//     &:active {
+//       background: transparent;
+//       box-shadow: $small-inner-shadow;
+//     }
+//   }
+//   .info {
+//     > div {
+//       margin-bottom: 0.5rem;
+//     }
+//     .title {
+//       @apply text-xs font-medium  uppercase;
+//       letter-spacing: 0.0125rem;
+//       color: $secondary;
+//       margin-bottom: 0.1rem;
+//     }
+//     .content {
+//       @apply text-sm leading-5;
+//     }
+//   }
+// }
