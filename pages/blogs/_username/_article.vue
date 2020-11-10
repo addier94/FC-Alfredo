@@ -1,14 +1,14 @@
 <template>
   <div class="mt-24 max-w-screen-xl m-auto p-4">
     <div
-      class="article-content-wrapper flex flex-col items-center m-auto mb-8 lg:items-start lg:flex-row"
+      class="article-content-wrapper flex flex-col items-center m-auto mb-8 lg:items-start lg:flex-row lg:justify-center"
     >
       <article-block
-        class="w-full lg:mr-4 lg:w-4/6 mb-8"
+        class="w-full lg:mr-4 lg:w-3/4 mb-8"
         style="max-width: 880px"
       />
 
-      <div class="aside-username-wrapper relative w-full lg:block lg:w-1/3">
+      <div class="aside-username-wrapper relative w-full lg:block lg:w-1/4">
         <blog-aside class="aside-username-block sticky" />
       </div>
     </div>

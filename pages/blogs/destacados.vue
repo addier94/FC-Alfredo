@@ -1,40 +1,15 @@
 <template>
-  <div class="mt-12">
-    <h1
-      class="mt-12 ml-4 mb-8 text-3xl sm:text-5xl font-semibold capitalize inline-block leading-none border-solid border-b-2 border-primary"
+  <div class="page-wrapper mt-32 max-w-screen-xl m-auto p-4">
+    <div
+      class="article-content-wrapper flex flex-col items-center m-auto mb-8 lg:flex-row lg:justify-center"
     >
-      Todos los posts
-    </h1>
-    <!-- <div class="max-w-screen-xl ml-auto mr-auto px-4 lg:flex lg:justify-between"> -->
-    <div class="max-w-screen-xl ml-auto mr-auto px-4 lg:relative">
-      <main class="lg:w-9/12">
-        <template v-if="$fetchState.pending && !articles.length">
-          <posts-blog :items="30" />
-        </template>
-        <template v-else-if="$fetchState.error">
-          <inline-error-block />
-        </template>
-        <!-- blog post -->
-        <div v-else class="lg:grid lg:grid-cols-2 lg:gap-4 lg:mr-5">
-          <blog-card
-            v-for="(article, i) in articles"
-            :key="i"
-            v-observe-visibility="
-              i === articles.length - 1 ? lazyLoadArticles : false
-            "
-            :article="article"
-          />
-        </div>
-        <template v-if="$fetchState.pending && articles.length">
-          <posts-blog :items="30" />
-        </template>
-        <template>
-          <paginate />
-        </template>
-      </main>
-      <template>
-        <blog-aside />
-      </template>
+      <blog-card
+        :isFeatured="true"
+        class="article-block w-full lg:mr-4 lg:w-3/4 lg:mb-8"
+      />
+      <div class="aside-username-wrapper w-full relative lg:block lg:w-1/4">
+        <blog-aside class="aside-username-block sticky" />
+      </div>
     </div>
   </div>
 </template>
@@ -42,40 +17,28 @@
 <script>
 import BlogCard from "@/components/shared/BlogCard";
 import BlogAside from "@/components/shared/BlogAside";
-import Paginate from "@/components/shared/Paginate";
-import PostsBlog from "@/components/placeholders/PostsBlog";
 export default {
   components: {
     BlogCard,
     BlogAside,
-    Paginate,
-    PostsBlog,
-  },
-  async fetch() {
-    const articles = await fetch(
-      `https://dev.to/api/articles?tag=nuxt&top=365&page=${this.currentPage}`
-    ).then((res) => res.json());
-
-    this.articles = this.articles.concat(articles);
-  },
-  data() {
-    return {
-      currentPage: 1,
-      articles: [],
-    };
-  },
-  methods: {
-    lazyLoadArticles(isVisible) {
-      if (isVisible) {
-        if (this.currentPage < 5) {
-          this.currentPage++;
-          this.$fetch();
-        }
-      }
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.article-content-wrapper {
+  @media (min-width: 1024px) {
+    align-items: normal;
+  }
+  .article-block {
+    max-width: 880px;
+  }
+  .aside-username-wrapper {
+    max-width: 880px;
+    .aside-username-block {
+      top: 5rem;
+      // margin: 0.5rem;
+    }
+  }
+}
 </style>

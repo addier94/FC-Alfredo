@@ -1,96 +1,152 @@
 <template>
-  <div class="container-post-card">
-    <nuxt-link
-      :to="{
-        name: 'blogs-username-article',
-        params: { username: article.user.username, article: article.id },
-      }"
-    >
-      <img
-        v-if="article.cover_image"
-        class="rounded-tl-xl rounded-tr-xl"
-        :src="article.cover_image"
-        :alt="article.title"
-      />
-      <p
-        v-else
-        class="h-48 bg-primary text-white flex justify-center items-center text-3xl font-bold rounded-tr-xl rounded-tl-xl"
-      >
-        Image not found
-      </p>
-    </nuxt-link>
-    <div class="px-3 py-1">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center">
-          <div class="">
-            <img
-              :src="article.user.profile_image_90"
-              alt=""
-              class="w-10 h-10 rounded-full"
-            />
-          </div>
-          <div class="leading-tight ml-2 text-gray-700">
-            <p>{{ article.user.name }}</p>
-            <p>
-              <time
-                datetime="2020-10-08T10:56:57Z"
-                title="jueves, 8 de octubre de 2020 6:56:57 a.&nbsp;m."
-                >{{ article.readable_publish_date }}</time
-              ><span class="" data-seconds="1602154617"></span>
-            </p>
-          </div>
-        </div>
-        <div>
-          <p>
-            <font-awesome-icon class="text-primary" :icon="['fas', 'heart']" />
-            {{ article.positive_reactions_count }}
-          </p>
-          <p>
-            <font-awesome-icon
-              class="text-secondary"
-              :icon="['fas', 'comment']"
-            />
-            {{ article.comments_count }}
-          </p>
-        </div>
-      </div>
-
-      <div class="my-1">
-        <h2 class="font-bold text-2xl leading-none">
+  <div>
+    <template v-if="$fetchState.pending && !articles.length">
+      <posts-blog :items="30" />
+    </template>
+    <template v-else-if="$fetchState.error">
+      <inline-error-block />
+    </template>
+    <template v-else>
+      <div class="container-post-card lg:grid lg:grid-cols-2 lg:gap-4">
+        <div
+          v-for="(article, i) in articles"
+          :key="i"
+          v-observe-visibility="
+            i === articles.length - 1 ? lazyLoadArticles : false
+          "
+          class="container-post-card"
+        >
           <nuxt-link
             :to="{
               name: 'blogs-username-article',
               params: { username: article.user.username, article: article.id },
             }"
-            class="title-tags"
           >
-            {{ article.title }}
+            <img
+              v-if="article.cover_image"
+              class="rounded-tl-xl rounded-tr-xl"
+              :src="article.cover_image"
+              :alt="article.title"
+            />
+            <p
+              v-else
+              class="h-48 bg-primary text-white flex justify-center items-center text-3xl font-bold rounded-tr-xl rounded-tl-xl"
+            >
+              Image not found
+            </p>
           </nuxt-link>
-        </h2>
-        <div class="tags mt-1">
-          <a
-            v-for="tag_list in article.tag_list"
-            :key="tag_list.id"
-            href="/t/webdev"
-            class="tag"
-            ><span class="">#</span>{{ tag_list }}</a
-          >
-          <!-- <a href="/t/javascript" class="tag"
-            ><span class="">#</span>javascript</a
-          >
-          <a href="/t/css" class="tag"><span class="">#</span>css</a>
-          <a href="/t/html" class="tag"><span class="">#</span>html</a> -->
+          <div class="px-3 py-1">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div>
+                  <img
+                    :src="article.user.profile_image_90"
+                    alt=""
+                    class="w-10 h-10 rounded-full"
+                  />
+                </div>
+                <div class="leading-tight ml-2 text-gray-700">
+                  <p>{{ article.user.name }}</p>
+                  <p>
+                    <time
+                      datetime="2020-10-08T10:56:57Z"
+                      title="jueves, 8 de octubre de 2020 6:56:57 a.&nbsp;m."
+                      >{{ article.readable_publish_date }}</time
+                    ><span class="" data-seconds="1602154617"></span>
+                  </p>
+                </div>
+              </div>
+              <div>
+                <p>
+                  <font-awesome-icon
+                    class="text-primary"
+                    :icon="['fas', 'heart']"
+                  />
+                  {{ article.positive_reactions_count }}
+                </p>
+                <p>
+                  <font-awesome-icon
+                    class="text-secondary"
+                    :icon="['fas', 'comment']"
+                  />
+                  {{ article.comments_count }}
+                </p>
+              </div>
+            </div>
+
+            <div class="my-1">
+              <h2 class="font-bold text-2xl leading-none">
+                <nuxt-link
+                  :to="{
+                    name: 'blogs-username-article',
+                    params: {
+                      username: article.user.username,
+                      article: article.id,
+                    },
+                  }"
+                  class="title-tags"
+                >
+                  {{ article.title }}
+                </nuxt-link>
+              </h2>
+              <div class="tags mt-1">
+                <a
+                  v-for="tag_list in article.tag_list"
+                  :key="tag_list.id"
+                  href="/t/webdev"
+                  class="tag"
+                  ><span class="">#</span>{{ tag_list }}</a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </template>
+    <template v-if="$fetchState.pending && articles.length">
+      <posts-blog :items="30" />
+    </template>
   </div>
 </template>
 <script>
+import BlogCard from "@/components/shared/BlogCard";
+import BlogAside from "@/components/shared/BlogAside";
+import PostsBlog from "@/components/placeholders/PostsBlog";
 export default {
-  props: {
-    article: {
-      type: Object,
-      default: null,
+  props: ["isArticles", "isFeatured"],
+  components: {
+    BlogCard,
+    BlogAside,
+    PostsBlog,
+  },
+  async fetch() {
+    let articles = "";
+    if (this.isArticles) {
+      articles = await fetch(
+        `https://dev.to/api/articles?tag=nuxt&state=rising&pag=${this.currentPage}`
+      ).then((res) => res.json());
+    } else if (this.isFeatured) {
+      articles = await fetch(
+        `https://dev.to/api/articles?tag=nuxt&top=365&page=${this.currentPage}`
+      ).then((res) => res.json());
+    }
+
+    this.articles = this.articles.concat(articles);
+  },
+  data() {
+    return {
+      currentPage: 1,
+      articles: [],
+    };
+  },
+  methods: {
+    lazyLoadArticles(isVisible) {
+      if (isVisible) {
+        if (this.currentPage < 5) {
+          this.currentPage++;
+          this.$fetch();
+        }
+      }
     },
   },
 };
