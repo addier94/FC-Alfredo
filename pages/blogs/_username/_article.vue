@@ -17,20 +17,18 @@
 </template>
 
 <script>
-// import AsideUsernameBlock from "@/components/AsideUsernameBlock";
 import ArticleBlock from "@/components/ArticleBlock";
 import BlogAside from "@/components/shared/BlogAside";
 import CommentsBlog from "@/components/CommentsBlog";
-import PostsSingleBlog from "@/components/placeholders/PostsSingleBlog";
-import PostsBlog from "@/components/placeholders/PostsBlog";
+// import PostsSingleBlog from "@/components/placeholders/PostsSingleBlog";
+// import PostsBlog from "@/components/placeholders/PostsBlog";
 export default {
   components: {
     BlogAside,
-    PostsBlog,
-    PostsSingleBlog,
+    // PostsBlog,
+    // PostsSingleBlog,
     ArticleBlock,
     CommentsBlog,
-    // AsideUsernameBlock,
   },
 };
 </script>

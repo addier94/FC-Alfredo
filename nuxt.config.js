@@ -18,7 +18,8 @@ export default {
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css',
     '~/assets/styles/reset.scss',
-    '~/assets/styles/highlight.scss'
+    '~/assets/styles/highlight.scss',
+    '~/assets/styles/base.scss'
   ],
   styleResources: {
     scss: ['~/assets/styles/_variables.scss']

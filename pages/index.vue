@@ -90,12 +90,9 @@
           >
             posts destacados
           </h1>
-
+          <!-- class="article-block w-full lg:mr-4 lg:w-3/4 lg:mb-8 lg:grid lg:grid-cols-2 lg:gap-4" -->
           <div class="sm:grid sm:grid-cols-2 sm:gap-4 m-4">
-            <!-- <blog-card />
-            <blog-card />
-            <blog-card />
-            <blog-card /> -->
+            <blog-card :isFeatured="true" />
           </div>
         </template>
       </div>

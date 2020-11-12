@@ -1,0 +1,58 @@
+.vue-content-placeholders-img,
+.vue-content-placeholders-text__line,
+.vue-content-placeholders-heading__img,
+.vue-content-placeholders-heading__title,
+.vue-content-placeholders-heading__subtitle {
+  background: #bfcdec !important;
+}
+
+.vue-content-placeholders-is-animated
+  .vue-content-placeholders-text__line::before,
+.vue-content-placeholders-is-animated .vue-content-placeholders-img::before,
+.vue-content-placeholders-is-animated
+  .vue-content-placeholders-heading__img::before,
+.vue-content-placeholders-is-animated
+  .vue-content-placeholders-heading__title::before,
+.vue-content-placeholders-is-animated
+  .vue-content-placeholders-heading__subtitle::before {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    #d3ddf9 15%,
+    transparent 30%
+  ) !important;
+}
+
+html {
+  height: 100%;
+  font-size: 16px;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+body {
+  height: 100%;
+  min-width: 320px;
+  // font-family: $body-font-family, $sans-serif-fallback-stack;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000000;
+  background-color: #eff4f7;
+  -webkit-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility; // Enable kerning and optional ligatures
+  font-synthesis: none;
+  font-kerning: normal;
+  font-feature-settings: 'normal';
+  -webkit-font-smoothing: antialiased; // Make type rendering look crisper
+  -moz-osx-font-smoothing: grayscale; // Make type rendering look crisper
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}

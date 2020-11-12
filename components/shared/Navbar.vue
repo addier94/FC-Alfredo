@@ -61,14 +61,14 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  @apply h-20 grid grid-cols-5 fixed w-full top-0 z-50;
+  @apply h-16 grid grid-cols-5 fixed w-full top-0 z-50;
   background: $gray;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   figure {
     @apply col-span-3 flex items-center;
     img {
       @apply inline-block max-w-none;
-      max-height: 5rem;
+      max-height: 4rem;
     }
     figcaption {
       @apply inline-block leading-7;
@@ -85,7 +85,7 @@ header {
     &::before {
       content: "";
       @apply w-0 h-0 absolute top-0;
-      border-bottom: 5rem solid black;
+      border-bottom: 4rem solid black;
       border-left: 2.5rem solid transparent;
       left: -2.5rem;
     }
@@ -157,7 +157,7 @@ header {
               border-radius: 3px 3px 0 0;
               background: $primary;
               height: 2px;
-              bottom: -26px;
+              bottom: -21px;
             }
           }
           &:hover {

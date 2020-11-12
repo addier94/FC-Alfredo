@@ -5,7 +5,7 @@
     >
       <blog-card
         :isArticles="true"
-        class="article-block w-full lg:mr-4 lg:w-3/4 lg:mb-8"
+        class="article-block w-full lg:mr-4 lg:w-3/4 lg:mb-8 lg:grid lg:grid-cols-2 lg:gap-4"
       />
       <div class="aside-username-wrapper w-full relative lg:block lg:w-1/4">
         <blog-aside class="aside-username-block sticky" />

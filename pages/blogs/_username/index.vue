@@ -4,7 +4,7 @@
       class="article-content-wrapper flex flex-col items-center m-auto mb-8 lg:flex-row lg:justify-center"
     >
       <blog-card
-        :isFeatured="true"
+        :isUsernameArticlesBlock="true"
         class="article-block w-full lg:mr-4 lg:w-3/4 lg:mb-8 lg:grid lg:grid-cols-2 lg:gap-4"
       />
       <div class="aside-username-wrapper w-full relative lg:block lg:w-1/4">
